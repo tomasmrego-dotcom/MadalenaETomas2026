@@ -1,4 +1,4 @@
-:HL["/MadalenaETomas2026/_next/static/chunks/f4d75e704c0b45b9.css","style"]
+:HL["/MadalenaETomas2026/_next/static/chunks/f1055325274378ee.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap","style"]
 :HL["/MadalenaETomas2026/Quinta_dos_espadeiros.jpg","image"]
-0:{"buildId":"BEDRfLKMpKTfzWFfF0bCn","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"local","paramType":null,"paramKey":"local","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"npJmQm_3361wXhSsH3FEd","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"local","paramType":null,"paramKey":"local","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
