@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   output: 'export',
-  basePath: '/MadalenaETomas2026',
+  basePath: '/Wedding-Website-v2',
   images: {
     unoptimized: true,
   },
