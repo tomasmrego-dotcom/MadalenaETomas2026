@@ -1,0 +1,264 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+
+interface FormData {
+  name: string;
+  email: string;
+  attendance: string;
+  guests: string;
+  dietary: string;
+  message: string;
+}
+
+export default function RSVPForm() {
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    email: "",
+    attendance: "",
+    guests: "1",
+    dietary: "",
+    message: "",
+  });
+
+  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  const validateForm = (): boolean => {
+    const newErrors: Partial<FormData> = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Nome é obrigatório";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email é obrigatório";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = "Email inválido";
+    }
+
+    if (!formData.attendance) {
+      newErrors.attendance = "Por favor selecione a sua presença";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    // Simulate API call
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    console.log("Form submitted:", formData);
+    setSubmitSuccess(true);
+    setIsSubmitting(false);
+
+    // Reset form after 3 seconds
+    setTimeout(() => {
+      setFormData({
+        name: "",
+        email: "",
+        attendance: "",
+        guests: "1",
+        dietary: "",
+        message: "",
+      });
+      setSubmitSuccess(false);
+    }, 3000);
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
+
+  return (
+    <section id="rsvp" className="py-20 px-4 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-4xl md:text-5xl font-serif text-center text-gray-800 mb-6">
+          RSVP
+        </h2>
+        <div className="w-24 h-1 bg-gradient-to-r from-rose-300 to-pink-300 mx-auto mb-4"></div>
+        <h2 className="text-4xl md:text-5xl font-serif text-center text-gray-800 mb-0 opacity-0">
+          RSVP
+        </h2>
+        <p className="text-center text-gray-600 mb-12">
+          Por favor responda até 1 de maio de 2026
+        </p>
+
+        {submitSuccess ? (
+          <div className="bg-green-50 border border-green-200 text-green-800 px-6 py-4 rounded-lg text-center">
+            <svg className="w-12 h-12 mx-auto mb-3 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <h3 className="text-xl font-semibold mb-2">Obrigado!</h3>
+            <p>O teu RSVP foi recebido. Mal podemos esperar para celebrar contigo!</p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8">
+            {/* Name */}
+            <div className="mb-6">
+              <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
+                Nome Completo *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 ${
+                  errors.name ? "border-red-500" : "border-gray-300"
+                }`}
+                placeholder="João Silva"
+              />
+              {errors.name && (
+                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+              )}
+            </div>
+
+            {/* Email */}
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-gray-700 font-semibold mb-2">
+                Email *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 ${
+                  errors.email ? "border-red-500" : "border-gray-300"
+                }`}
+                placeholder="joao@exemplo.com"
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+              )}
+            </div>
+
+            {/* Attendance */}
+            <div className="mb-6">
+              <label className="block text-gray-700 font-semibold mb-2">
+                Irás comparecer? *
+              </label>
+              <div className="flex gap-4">
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="attendance"
+                    value="yes"
+                    checked={formData.attendance === "yes"}
+                    onChange={handleChange}
+                    className="mr-2 w-4 h-4 text-rose-400 focus:ring-rose-300"
+                  />
+                  <span className="text-gray-700">Aceito com alegria</span>
+                </label>
+                <label className="flex items-center cursor-pointer">
+                  <input
+                    type="radio"
+                    name="attendance"
+                    value="no"
+                    checked={formData.attendance === "no"}
+                    onChange={handleChange}
+                    className="mr-2 w-4 h-4 text-rose-400 focus:ring-rose-300"
+                  />
+                  <span className="text-gray-700">Não posso comparecer</span>
+                </label>
+              </div>
+              {errors.attendance && (
+                <p className="text-red-500 text-sm mt-1">{errors.attendance}</p>
+              )}
+            </div>
+
+            {/* Number of Guests */}
+            {formData.attendance === "yes" && (
+              <>
+                <div className="mb-6">
+                  <label htmlFor="guests" className="block text-gray-700 font-semibold mb-2">
+                    Número de Convidados
+                  </label>
+                  <select
+                    id="guests"
+                    name="guests"
+                    value={formData.guests}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300"
+                  >
+                    <option value="1">1 Convidado</option>
+                    <option value="2">2 Convidados</option>
+                    <option value="3">3 Convidados</option>
+                    <option value="4">4 Convidados</option>
+                  </select>
+                </div>
+
+                {/* Dietary Restrictions */}
+                <div className="mb-6">
+                  <label htmlFor="dietary" className="block text-gray-700 font-semibold mb-2">
+                    Restrições Alimentares
+                  </label>
+                  <input
+                    type="text"
+                    id="dietary"
+                    name="dietary"
+                    value={formData.dietary}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300"
+                    placeholder="Vegetariano, Sem glúten, etc."
+                  />
+                </div>
+              </>
+            )}
+
+            {/* Message */}
+            <div className="mb-6">
+              <label htmlFor="message" className="block text-gray-700 font-semibold mb-2">
+                Mensagem (Opcional)
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                rows={4}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 resize-none"
+                placeholder="Partilha os teus pensamentos ou sugestões de música..."
+              />
+            </div>
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-gradient-to-r from-rose-300 to-pink-300 hover:from-rose-400 hover:to-pink-400 text-gray-700 font-bold py-4 rounded-lg transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+            >
+              {isSubmitting ? "A enviar..." : "Eu vou estar lá"}
+            </button>
+          </form>
+        )}
+      </div>
+    </section>
+  );
+}
