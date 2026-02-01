@@ -1,6 +1,8 @@
-# Wedding RSVP Website
+# Private Wedding Website
 
-A modern, responsive wedding RSVP website built with Next.js, React, TypeScript, and Tailwind CSS.
+A private wedding website for Madalena & Tomás's wedding celebration. Built with Next.js, React, TypeScript, and Tailwind CSS.
+
+> **Note:** This is a private wedding website. The code is public for portfolio purposes, but the deployed site is intended for invited guests only.
 
 ## Features
 

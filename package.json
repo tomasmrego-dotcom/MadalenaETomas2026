@@ -2,7 +2,7 @@
   "name": "wedding-website",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://madalena-tomas.github.io/wedding",
+  "homepage": "https://tomasmrego-dotcom.github.io/MadalenaETomas2026",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
