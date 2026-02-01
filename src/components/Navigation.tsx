@@ -32,10 +32,10 @@ export default function Navigation() {
           {/* Right RSVP Button */}
           <div className="hidden md:block ml-auto">
             <Link
-              href="#rsvp"
-              className="px-8 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-700 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-semibold rounded-lg shadow-md hover:shadow-lg"
+              href="/rsvp"
+              className="px-8 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold rounded-xl shadow-md hover:shadow-lg uppercase tracking-wider"
             >
-              Eu vou estar lá
+              RSVP
             </Link>
           </div>
 
@@ -58,8 +58,8 @@ export default function Navigation() {
 
           {/* Mobile RSVP Button */}
           <Link
-            href="#rsvp"
-            className="md:hidden px-4 py-2 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-700 hover:from-rose-400 hover:to-pink-400 transition-all text-xs font-semibold rounded-lg shadow-md"
+            href="/rsvp"
+            className="md:hidden px-4 py-2 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-xs font-bold rounded-xl shadow-md uppercase tracking-wider"
           >
             RSVP
           </Link>
@@ -82,13 +82,6 @@ export default function Navigation() {
             </Link>
             <Link href="#faq" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
               FAQ
-            </Link>
-            <Link
-              href="#rsvp"
-              className="px-6 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-700 hover:from-rose-400 hover:to-pink-400 transition-all text-center font-semibold rounded-lg"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Eu vou estar lá
             </Link>
           </div>
         )}

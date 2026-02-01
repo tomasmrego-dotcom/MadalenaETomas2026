@@ -39,27 +39,28 @@ export default function Countdown() {
 
   const CircularProgress = ({ value, max, color, label }: { value: number; max: number; color: string; label: string }) => {
     const percentage = getProgress(value, max);
-    const circumference = 2 * Math.PI * 45;
+    const radius = 35; // Radius for mobile, 45 for desktop
+    const circumference = 2 * Math.PI * radius;
     const strokeDashoffset = circumference - (percentage / 100) * circumference;
 
     return (
       <div className="flex flex-col items-center">
-        <div className="relative w-24 h-24 md:w-32 md:h-32">
-          <svg className="transform -rotate-90 w-24 h-24 md:w-32 md:h-32">
+        <div className="relative w-20 h-20 md:w-32 md:h-32">
+          <svg className="transform -rotate-90 w-20 h-20 md:w-32 md:h-32" viewBox="0 0 80 80">
             <circle
-              cx="50%"
-              cy="50%"
-              r="45"
+              cx="40"
+              cy="40"
+              r="35"
               stroke="#f0f0f0"
-              strokeWidth="8"
+              strokeWidth="6"
               fill="none"
             />
             <circle
-              cx="50%"
-              cy="50%"
-              r="45"
+              cx="40"
+              cy="40"
+              r="35"
               stroke={color}
-              strokeWidth="8"
+              strokeWidth="6"
               fill="none"
               strokeDasharray={circumference}
               strokeDashoffset={strokeDashoffset}
@@ -68,33 +69,34 @@ export default function Countdown() {
             />
           </svg>
           <div className="absolute inset-0 flex items-center justify-center">
-            <span className="text-2xl md:text-4xl font-light text-gray-700">
+            <span className="text-xl md:text-4xl font-light text-gray-700">
               {String(value).padStart(2, '0')}
             </span>
           </div>
         </div>
-        <span className="mt-3 text-sm md:text-base text-gray-600">{label}</span>
+        <span className="mt-2 text-xs md:text-base text-gray-600">{label}</span>
       </div>
     );
   };
 
   return (
-    <section className="py-20 px-4 bg-white">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-serif text-center text-gray-800 mb-16">
+    <section className="py-12 md:py-20 px-4 bg-white relative">
+      <div className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: 'url(/watermark.png)' }}></div>
+      <div className="max-w-6xl mx-auto relative z-10">
+        <h2 className="text-3xl md:text-5xl font-serif text-center text-gray-800 mb-8 md:mb-16">
           Onde e Quando
         </h2>
         
         {/* Date */}
-        <div className="text-center mb-12">
-          <p className="text-2xl md:text-3xl font-light text-gray-700">
+        <div className="text-center mb-8 md:mb-12">
+          <p className="text-xl md:text-3xl font-light text-gray-700">
             Sábado, 10 de Outubro de 2026
           </p>
         </div>
 
         {/* Countdown */}
-        <div className="mb-16">
-          <div className="flex justify-center items-center gap-4 md:gap-8 flex-wrap">
+        <div className="mb-8 md:mb-16">
+          <div className="flex justify-center items-center gap-2 md:gap-8">
             <CircularProgress value={timeLeft.days} max={250} color="#fda4af" label="Days" />
             <CircularProgress value={timeLeft.hours} max={24} color="#f9a8d4" label="Hours" />
             <CircularProgress value={timeLeft.minutes} max={60} color="#d8b4fe" label="Minutes" />
@@ -104,10 +106,10 @@ export default function Countdown() {
 
         {/* Location */}
         <div className="text-center">
-          <p className="text-2xl md:text-3xl font-medium text-gray-800 mb-2">
+          <p className="text-xl md:text-3xl font-medium text-gray-800 mb-2">
             Quinta dos Espadeiros
           </p>
-          <p className="text-lg md:text-xl text-gray-600 mb-6">
+          <p className="text-base md:text-xl text-gray-600 mb-6">
             2810-434 Almada
           </p>
           <a 

@@ -5,8 +5,10 @@ import EnvelopeEntry from "@/components/EnvelopeEntry";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Countdown from "@/components/Countdown";
+import Schedule from "@/components/Schedule";
+import InfoSection from "@/components/InfoSection";
 import WeddingDetails from "@/components/WeddingDetails";
-import RSVPForm from "@/components/RSVPForm";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [showContent, setShowContent] = useState(false);
@@ -42,8 +44,10 @@ export default function Home() {
       <main className="min-h-screen animate-fade-in">
         <Hero />
         <Countdown />
-        <RSVPForm />
+        <Schedule />
+        <InfoSection />
       </main>
+      <Footer />
     </>
   );
 }
