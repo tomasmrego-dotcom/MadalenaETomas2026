@@ -1,3 +1,3 @@
-:HL["/MadalenaETomas2026/_next/static/chunks/310f76b219334a6f.css","style"]
+:HL["/MadalenaETomas2026/_next/static/chunks/e022288e78aa71c9.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap","style"]
-0:{"buildId":"4QUBA3P5SiGiKLeMhz0KW","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"rsvp","paramType":null,"paramKey":"rsvp","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"d2kgqLV5W1bxwpyuBjhEp","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"rsvp","paramType":null,"paramKey":"rsvp","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
