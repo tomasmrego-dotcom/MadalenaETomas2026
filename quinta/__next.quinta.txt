@@ -1,4 +1,4 @@
 1:"$Sreact.fragment"
 2:I[39756,["/MadalenaETomas2026/_next/static/chunks/ff1a16fafef87110.js","/MadalenaETomas2026/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
 3:I[37457,["/MadalenaETomas2026/_next/static/chunks/ff1a16fafef87110.js","/MadalenaETomas2026/_next/static/chunks/d2be314c3ece3fbe.js"],"default"]
-0:{"buildId":"eRMhuQdxW0tT7pXdZszf6","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
+0:{"buildId":"0lqVfkljfOtHTfg1F51i3","rsc":["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","template":["$","$L3",null,{}]}]]}],"loading":null,"isPartial":false}
