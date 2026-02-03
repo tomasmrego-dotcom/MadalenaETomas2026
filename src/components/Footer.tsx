@@ -1,6 +1,11 @@
+"use client";
+
+import { useState } from 'react';
 import Link from "next/link";
+import RSVPPopup from './RSVPPopup';
 
 export default function Footer() {
+  const [showRSVPPopup, setShowRSVPPopup] = useState(false);
   return (
     <footer className="bg-gray-900 text-white py-12 px-4">
       <div className="max-w-6xl mx-auto">
@@ -22,13 +27,16 @@ export default function Footer() {
               <Link href="/" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Início
               </Link>
-              <Link href="/local" className="text-gray-400 hover:text-white transition-colors text-sm">
-                Local
+              <Link href="/quinta" className="text-gray-400 hover:text-white transition-colors text-sm">
+                A Quinta
               </Link>
-              <Link href="/presente" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <Link href="/#dress-code" className="text-gray-400 hover:text-white transition-colors text-sm">
+                Dress Code
+              </Link>
+              <Link href="/#presente" className="text-gray-400 hover:text-white transition-colors text-sm">
                 Presente
               </Link>
-              <Link href="/faq" className="text-gray-400 hover:text-white transition-colors text-sm">
+              <Link href="/#faq" className="text-gray-400 hover:text-white transition-colors text-sm">
                 FAQ
               </Link>
             </nav>
@@ -37,12 +45,12 @@ export default function Footer() {
           {/* RSVP */}
           <div className="text-center md:text-right">
             <h4 className="text-lg font-semibold mb-4">Confirme a Presença</h4>
-            <Link
-              href="/rsvp"
+            <button
+              onClick={() => setShowRSVPPopup(true)}
               className="inline-block px-6 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold rounded-xl shadow-md uppercase tracking-wider"
             >
               RSVP
-            </Link>
+            </button>
           </div>
         </div>
 
@@ -53,6 +61,11 @@ export default function Footer() {
           </p>
         </div>
       </div>
+      
+      {/* RSVP Popup */}
+      {showRSVPPopup && (
+        <RSVPPopup onClose={() => setShowRSVPPopup(false)} />
+      )}
     </footer>
   );
 }

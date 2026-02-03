@@ -1,8 +1,10 @@
 export default function Schedule() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   return (
     <section className="py-24 md:py-32 px-4 bg-gradient-to-br from-gray-800 to-gray-900 text-white relative overflow-hidden">
       {/* Background Pattern or Image (optional) */}
-      <div className="absolute inset-0 opacity-5 bg-center bg-cover" style={{ backgroundImage: 'url(/timeline_background.jpeg)' }}></div>
+      <div className="absolute inset-0 opacity-5 bg-center bg-cover" style={{ backgroundImage: `url(${basePath}/timeline_background.jpeg)` }}></div>
       
       <div className="max-w-5xl mx-auto relative z-10">
         <div className="text-center mb-16 md:mb-20">

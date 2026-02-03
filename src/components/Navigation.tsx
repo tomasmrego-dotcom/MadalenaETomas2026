@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import RSVPPopup from "./RSVPPopup";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showRSVPPopup, setShowRSVPPopup] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
@@ -13,30 +15,30 @@ export default function Navigation() {
           {/* Left Navigation */}
           <div className="hidden md:flex items-center gap-8">
             <Link href="/" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
-              Início
+              Home
             </Link>
-            <Link href="/local" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
-              Local
+            <Link href="/quinta" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+              A quinta
             </Link>
-            <Link href="#viagem" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
-              Viagem
+            <Link href="/#dress-code" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+              Dress code
             </Link>
-            <Link href="#lista" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
-              Lista de Casamento
+            <Link href="/#presente" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+              Presente
             </Link>
-            <Link href="#faq" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+            <Link href="/#faq" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
               FAQ
             </Link>
           </div>
 
           {/* Right RSVP Button */}
           <div className="hidden md:block ml-auto">
-            <Link
-              href="/rsvp"
+            <button
+              onClick={() => setShowRSVPPopup(true)}
               className="px-8 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold rounded-xl shadow-md hover:shadow-lg uppercase tracking-wider"
             >
               RSVP
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -57,35 +59,40 @@ export default function Navigation() {
           </button>
 
           {/* Mobile RSVP Button */}
-          <Link
-            href="/rsvp"
+          <button
+            onClick={() => setShowRSVPPopup(true)}
             className="md:hidden px-4 py-2 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-xs font-bold rounded-xl shadow-md uppercase tracking-wider"
           >
             RSVP
-          </Link>
+          </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4 bg-white/95 backdrop-blur-md rounded-lg p-4">
             <Link href="/" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-              Início
+              Home
             </Link>
-            <Link href="/local" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-              Local
+            <Link href="/quinta" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+              A quinta
             </Link>
-            <Link href="#viagem" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-              Viagem
+            <Link href="/#dress-code" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+              Dress code
             </Link>
-            <Link href="#lista" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-              Lista de Casamento
+            <Link href="/#presente" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+              Presente
             </Link>
-            <Link href="#faq" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/#faq" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
               FAQ
             </Link>
           </div>
         )}
       </div>
+      
+      {/* RSVP Popup */}
+      {showRSVPPopup && (
+        <RSVPPopup onClose={() => setShowRSVPPopup(false)} />
+      )}
     </nav>
   );
 }

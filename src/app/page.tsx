@@ -8,6 +8,7 @@ import Countdown from "@/components/Countdown";
 import Schedule from "@/components/Schedule";
 import InfoSection from "@/components/InfoSection";
 import WeddingDetails from "@/components/WeddingDetails";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -46,6 +47,7 @@ export default function Home() {
         <Countdown />
         <Schedule />
         <InfoSection />
+        <FAQ />
       </main>
       <Footer />
     </>

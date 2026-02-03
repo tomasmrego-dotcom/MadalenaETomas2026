@@ -33,6 +33,10 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  /* Hide blue status bar on mobile */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @layer utilities {
@@ -42,6 +46,10 @@ body {
   
   .animate-fade-in {
     animation: fadeIn 1s ease-in;
+  }
+  
+  .animate-shake {
+    animation: shake 0.5s ease-in-out;
   }
   
   .delay-100 {
@@ -65,5 +73,17 @@ body {
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
   }
 }

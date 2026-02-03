@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from 'next/link';
 
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState({
@@ -79,9 +80,11 @@ export default function Countdown() {
     );
   };
 
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+
   return (
     <section className="py-12 md:py-20 px-4 bg-white relative">
-      <div className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: 'url(/watermark.png)' }}></div>
+      <div className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: `url(${basePath}/watermark.png)` }}></div>
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-5xl font-serif text-center text-gray-800 mb-8 md:mb-16">
           Onde e Quando
@@ -112,12 +115,12 @@ export default function Countdown() {
           <p className="text-base md:text-xl text-gray-600 mb-6">
             2810-434 Almada
           </p>
-          <a 
-            href="/local"
+          <Link 
+            href="/quinta"
             className="inline-block px-8 py-3 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-700 hover:from-rose-400 hover:to-pink-400 transition-all font-semibold rounded-lg shadow-md hover:shadow-lg"
           >
             Como chegar lá
-          </a>
+          </Link>
         </div>
       </div>
     </section>

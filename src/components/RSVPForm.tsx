@@ -55,25 +55,47 @@ export default function RSVPForm() {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI7jqqL_Jz6mxwiDJLHomr-yfMV0QitgXQ6QVhj3s7uLnrjsjmQdBOEVVALccOdJT/exec';
 
-    console.log("Form submitted:", formData);
-    setSubmitSuccess(true);
-    setIsSubmitting(false);
-
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        attendance: "",
-        guests: "1",
-        dietary: "",
-        message: "",
+      // Using text/plain to avoid CORS preflight issues with Google Scripts
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: JSON.stringify({
+          type: 'rsvp',
+          email: formData.email,
+          attendance: formData.attendance,
+          numberOfGuests: parseInt(formData.guests),
+          guestNames: [formData.name],
+          dietary: formData.dietary,
+          message: formData.message
+        })
       });
-      setSubmitSuccess(false);
-    }, 3000);
+
+      setSubmitSuccess(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          name: "",
+          email: "",
+          attendance: "",
+          guests: "1",
+          dietary: "",
+          message: "",
+        });
+        setSubmitSuccess(false);
+      }, 3000);
+    } catch (error) {
+      console.error('Submission error:', error);
+      alert('Erro ao enviar. Por favor tenta novamente.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
@@ -116,7 +138,7 @@ export default function RSVPForm() {
             <p>O teu RSVP foi recebido. Mal podemos esperar para celebrar contigo!</p>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-xl p-8">
+          <form onSubmit={handleSubmit} action="" className="bg-white rounded-lg shadow-xl p-8">
             {/* Name */}
             <div className="mb-6">
               <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">

@@ -62,16 +62,24 @@ export default function RSVPPage() {
     setIsSubmitting(true);
 
     try {
-      // Replace with your Google Apps Script Web App URL
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyLcrT7nDhYkhnan2LsJd4NVNBhJvESA27HN31XkCpjQNsAwZNYC8MGmtfbrIqUKcI/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI7jqqL_Jz6mxwiDJLHomr-yfMV0QitgXQ6QVhj3s7uLnrjsjmQdBOEVVALccOdJT/exec';
       
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
+      // Using text/plain to avoid CORS preflight issues with Google Scripts
+      await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         mode: 'no-cors',
         headers: {
-          'Content-Type': 'application/json',
+          'Content-Type': 'text/plain',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          type: 'rsvp',
+          email: formData.email,
+          attendance: formData.attendance,
+          numberOfGuests: parseInt(formData.numberOfGuests),
+          guestNames: formData.guestNames,
+          dietary: formData.dietary,
+          message: formData.message
+        }),
       });
 
       console.log("Form submitted:", formData);

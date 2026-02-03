@@ -1,27 +1,25 @@
-import Image from "next/image";
+"use client";
+
+import { useState } from 'react';
+import RSVPPopup from './RSVPPopup';
 
 export default function Hero() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  const [showRSVPPopup, setShowRSVPPopup] = useState(false);
+  
   return (
     <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden mt-16 md:-mt-0">
       {/* Mobile Hero Image */}
-      <Image
-        src="/hero-mobile.jpeg"
+      <img
+        src={`${basePath}/hero-mobile.jpeg`}
         alt="Wedding Hero"
-        fill
-        className="object-cover object-center md:hidden"
-        priority
-        sizes="100vw"
-        quality={100}
+        className="absolute inset-0 w-full h-full object-cover object-center md:hidden"
       />
       {/* Desktop Hero Image */}
-      <Image
-        src="/hero.jpeg"
+      <img
+        src={`${basePath}/hero.jpeg`}
         alt="Wedding Hero"
-        fill
-        className="object-cover object-center hidden md:block"
-        priority
-        sizes="100vw"
-        quality={90}
+        className="absolute inset-0 w-full h-full object-cover object-center hidden md:block"
       />
       
       {/* Dark Overlay */}
@@ -40,8 +38,8 @@ export default function Hero() {
         <p className="text-lg md:text-xl font-normal mb-10">
           10 de Outubro de 2026
         </p>
-        <a
-          href="/rsvp"
+        <button
+          onClick={() => setShowRSVPPopup(true)}
           className="group relative px-16 py-5 overflow-hidden rounded-xl transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-2xl"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-rose-300 via-pink-300 to-rose-300"></div>
@@ -49,8 +47,13 @@ export default function Hero() {
           <span className="relative text-gray-800 font-bold tracking-[0.3em] text-xl md:text-2xl uppercase">
             RSVP
           </span>
-        </a>
+        </button>
       </div>
+      
+      {/* RSVP Popup */}
+      {showRSVPPopup && (
+        <RSVPPopup onClose={() => setShowRSVPPopup(false)} />
+      )}
     </section>
   );
 }

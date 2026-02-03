@@ -1,4 +1,6 @@
 export default function ComoChegar() {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  
   return (
     <>
       {/* Local Section */}
@@ -25,7 +27,7 @@ export default function ComoChegar() {
             {/* Quinta Image on the right */}
             <div className="order-1 md:order-2 rounded-xl overflow-hidden shadow-2xl">
               <img 
-                src="/Quinta_dos_espadeiros.jpg" 
+                src={`${basePath}/Quinta_dos_espadeiros.jpg`}
                 alt="Quinta dos Espadeiros"
                 className="w-full h-[300px] md:h-[500px] object-cover"
               />

@@ -1,9 +1,17 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Casamento de Madalena & Tomás",
   description: "Junta-te a nós no nosso dia especial",
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  userScalable: false,
+  themeColor: '#ffffff',
 };
 
 export default function RootLayout({

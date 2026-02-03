@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 interface EnvelopeEntryProps {
   onOpen: () => void;
@@ -44,14 +43,12 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
             }}
           >
             <div className="relative w-[90vw] h-[60vh] md:w-[1100px] md:h-[733px] lg:w-[1400px] lg:h-[933px]">
-              <Image
-                src="/envelope.png"
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/envelope.png`}
                 alt="Wedding Invitation Envelope"
-                fill
-                className={`object-contain drop-shadow-2xl transition-opacity duration-1000 ${
+                className={`w-full h-full object-contain drop-shadow-2xl transition-opacity duration-1000 ${
                   showInvitation ? "opacity-0" : "opacity-100"
                 }`}
-                priority
               />
             </div>
           </div>
@@ -66,12 +63,10 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
                 }}
               >
                 <div className="relative w-[85vw] h-[70vh] md:w-[700px] md:h-[933px] lg:w-[900px] lg:h-[1200px]">
-                  <Image
-                    src="/invitation.png"
+                  <img
+                    src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/invitation.png`}
                     alt="Wedding Invitation"
-                    fill
-                    className="object-contain drop-shadow-2xl"
-                    priority
+                    className="w-full h-full object-contain drop-shadow-2xl"
                   />
                 </div>
               </div>
