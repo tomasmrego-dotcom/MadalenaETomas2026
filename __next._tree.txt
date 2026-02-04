@@ -1,3 +1,3 @@
-:HL["/MadalenaETomas2026/_next/static/chunks/123e1dee252a51da.css","style"]
+:HL["/MadalenaETomas2026/_next/static/chunks/3cc4a727e659e8c1.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Great+Vibes&display=swap","style"]
-0:{"buildId":"X3P8dBKZktiJ_wur-6D5o","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
+0:{"buildId":"b9Svbx0l0Qq-R_9f80Aj4","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
