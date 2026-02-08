@@ -9,6 +9,7 @@ import Schedule from "@/components/Schedule";
 import InfoSection from "@/components/InfoSection";
 import WeddingDetails from "@/components/WeddingDetails";
 import FAQ from "@/components/FAQ";
+import ComoChegar from "@/components/ComoChegar";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -47,6 +48,9 @@ export default function Home() {
         <Countdown />
         <Schedule />
         <InfoSection />
+        <div id="local">
+          <ComoChegar />
+        </div>
         <FAQ />
       </main>
       <Footer />

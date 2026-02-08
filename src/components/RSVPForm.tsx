@@ -56,7 +56,7 @@ export default function RSVPForm() {
     setIsSubmitting(true);
 
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI7jqqL_Jz6mxwiDJLHomr-yfMV0QitgXQ6QVhj3s7uLnrjsjmQdBOEVVALccOdJT/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJX4OZIrEsV2Zs1VmIc2WD7huTf49jzM1zx7pO4DhgRrcfFDJ8_sRHGzpeM1zUUh12/exec';
 
       // Using text/plain to avoid CORS preflight issues with Google Scripts
       await fetch(GOOGLE_SCRIPT_URL, {
@@ -116,7 +116,7 @@ export default function RSVPForm() {
   };
 
   return (
-    <section id="rsvp" className="py-20 px-4 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <section id="rsvp" className="py-20 px-4 bg-gradient-to-br from-blue-50 via-sky-50 to-blue-100">
       <div className="max-w-2xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-serif text-center text-gray-800 mb-6">
           RSVP
@@ -274,7 +274,7 @@ export default function RSVPForm() {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-rose-300 to-pink-300 hover:from-rose-400 hover:to-pink-400 text-gray-800 font-bold py-4 rounded-xl transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02] uppercase tracking-wider"
+              className="w-full bg-gradient-to-r from-blue-300 to-blue-400 hover:from-blue-400 hover:to-blue-500 text-gray-800 font-bold py-4 rounded-xl transition-all duration-300 disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg hover:shadow-xl transform hover:scale-[1.02] uppercase tracking-wider"
             >
               {isSubmitting ? "A enviar..." : "Eu vou estar lá"}
             </button>

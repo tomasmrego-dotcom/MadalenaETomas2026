@@ -8,17 +8,19 @@ export default function InfoSection() {
   const [showMessageModal, setShowMessageModal] = useState(false);
   
   return (
-    <section className="py-20 md:py-28 px-4 bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <section className="py-20 md:py-28 px-4 bg-gradient-to-br from-blue-50 via-sky-50 to-blue-100">
       <div className="max-w-6xl mx-auto space-y-20">
         {/* Dress Code Section - Image Right, Text Left */}
-        <div id="dress-code" className="grid md:grid-cols-2 gap-8 items-center">
+        <div id="dress-code" className="grid md:grid-cols-2 gap-8 items-center scroll-mt-24">
           {/* Text on Left */}
           <div className="order-2 md:order-1 space-y-6">
             <h2 className="text-4xl md:text-5xl font-serif text-gray-800">
               Dress Code
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-              Recomendamos um traje formal chique. Para as senhoras, vestidos longos ou de cocktail em tons claros ou inspirados na natureza são perfeitos (por favor evitem branco ou tons muito semelhantes ou padrões florais). O casamento será num ambiente florestal junto a um lago, por isso aconselhamos a não usar saltos muito finos, pois o piso é natural. Ténis/sapatilhas devem ser evitados para manter o estilo formal chique.
+              Sugerimos um dress code elegante, adequado a um casamento ao ar livre.
+              O mais importante é que se sintam confortáveis para aproveitar o dia connosco!
+              O casamento decorrerá num ambiente com algumas zonas de relva, pelo que aconselhamos a não usar saltos muito finos.
             </p>
           </div>
           
@@ -35,7 +37,7 @@ export default function InfoSection() {
         </div>
 
         {/* Present/Registry Section - Image Left, Text Right */}
-        <div id="presente" className="grid md:grid-cols-2 gap-8 items-center">
+        <div id="presente" className="grid md:grid-cols-2 gap-8 items-center scroll-mt-24">
           {/* Image on Left */}
           <div className="order-1">
             <div className="rounded-xl overflow-hidden shadow-2xl">
@@ -53,7 +55,11 @@ export default function InfoSection() {
               Presente
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-              A vossa presença é o melhor presente de todos. Mas se nos quiserem ajudar com a lua de mel (segredo: fácil de adivinhar onde pela fotografia) ficaríamos muito agradecidos:
+              A vossa presença é, sem dúvida, o melhor presente que nos podem dar.
+              Se nos quiserem oferecer um presente, estamos a planear uma viagem de lua de mel ao Quénia e à Tanzânia, e ficaremos muito agradecidos por qualquer contributo para realizar este sonho.
+            </p>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              Aqui ficam os dados para quem desejar contribuir:
             </p>
             
             {/* Payment Options */}
@@ -111,10 +117,17 @@ export default function InfoSection() {
               </div>
             </div>
 
+            <div className="text-center md:text-left">
+              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+                Um beijinho e um abraço,<br />
+                Madalena e Tomás
+              </p>
+            </div>
+
             {/* CTA Button */}
             <button
               onClick={() => setShowMessageModal(true)}
-              className="w-full md:w-auto px-10 py-3.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold uppercase tracking-widest rounded-xl shadow-md hover:shadow-lg"
+              className="w-full md:w-auto px-10 py-3.5 bg-gradient-to-r from-pink-200 to-rose-300 text-gray-700 hover:from-pink-300 hover:to-rose-400 transition-all text-sm font-bold uppercase tracking-widest rounded-xl shadow-md hover:shadow-lg"
             >
               Quero deixar uma mensagem
             </button>

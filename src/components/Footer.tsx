@@ -47,7 +47,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Confirme a Presença</h4>
             <button
               onClick={() => setShowRSVPPopup(true)}
-              className="inline-block px-6 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold rounded-xl shadow-md uppercase tracking-wider"
+              className="inline-block px-6 py-2.5 bg-gradient-to-r from-pink-200 to-rose-300 text-gray-700 hover:from-pink-300 hover:to-rose-400 transition-all text-sm font-bold rounded-xl shadow-md uppercase tracking-wider"
             >
               RSVP
             </button>

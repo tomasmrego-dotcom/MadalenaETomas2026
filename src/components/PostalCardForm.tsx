@@ -24,7 +24,7 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
     setIsSubmitting(true);
     
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXI7jqqL_Jz6mxwiDJLHomr-yfMV0QitgXQ6QVhj3s7uLnrjsjmQdBOEVVALccOdJT/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJX4OZIrEsV2Zs1VmIc2WD7huTf49jzM1zx7pO4DhgRrcfFDJ8_sRHGzpeM1zUUh12/exec';
 
       fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
@@ -124,7 +124,7 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 p-3 sm:p-6">
               {/* Left Side - Image */}
-              <div className="relative h-[200px] sm:h-[300px] md:h-[500px] sm:border-r-2 border-blue-300 sm:pr-4 mb-4 sm:mb-0">
+              <div className="relative h-[180px] sm:h-[300px] md:h-[500px] sm:border-r-2 border-blue-300 sm:pr-4 mb-4 sm:mb-0">
                 <img
                   src={`${basePath}/kenya2.jpg`}
                   alt="Kenya"
@@ -135,7 +135,7 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
               {/* Right Side - Message Area */}
               <div className="sm:pl-4 relative">
                 {/* From field */}
-                <div className="mb-2 sm:mb-4 pt-2 sm:pt-16">
+                <div className="mb-2 sm:mb-4 pt-8 sm:pt-16">
                   <label htmlFor="gift-name" className="block text-sm text-blue-600 mb-1" style={{ fontFamily: 'cursive' }}>
                     from:
                   </label>
@@ -167,7 +167,7 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Escreve aqui a tua mensagem..."
-                  rows={6}
+                  rows={10}
                   className="w-full px-0 py-2 border-0 bg-transparent focus:outline-none text-gray-800 resize-none text-sm sm:text-base"
                   style={{ 
                     fontFamily: 'cursive'

@@ -2,11 +2,31 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import RSVPPopup from "./RSVPPopup";
 
 export default function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showRSVPPopup, setShowRSVPPopup] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const navigateToSection = (sectionId: string) => {
+    setIsMenuOpen(false);
+    
+    if (pathname === "/") {
+      // Already on homepage, just scroll to section
+      const element = document.getElementById(sectionId);
+      element?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      // Navigate to homepage first, then scroll to section
+      router.push("/");
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        element?.scrollIntoView({ behavior: "smooth" });
+      }, 100);
+    }
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
@@ -14,28 +34,28 @@ export default function Navigation() {
         <div className="flex items-center justify-between">
           {/* Left Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+            <Link href="/" className="text-gray-600 hover:text-blue-500 transition-colors text-sm font-medium">
               Home
             </Link>
-            <Link href="/quinta" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
-              A quinta
-            </Link>
-            <Link href="/#dress-code" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+            <button onClick={() => navigateToSection('dress-code')} className="text-gray-600 hover:text-blue-500 transition-colors text-sm font-medium">
               Dress code
-            </Link>
-            <Link href="/#presente" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => navigateToSection('presente')} className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
               Presente
-            </Link>
-            <Link href="/#faq" className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+            </button>
+            <button onClick={() => navigateToSection('local')} className="text-gray-600 hover:text-rose-400 transition-colors text-sm font-medium">
+              O Local
+            </button>
+            <button onClick={() => navigateToSection('faq')} className="text-gray-600 hover:text-blue-500 transition-colors text-sm font-medium">
               FAQ
-            </Link>
+            </button>
           </div>
 
           {/* Right RSVP Button */}
           <div className="hidden md:block ml-auto">
             <button
               onClick={() => setShowRSVPPopup(true)}
-              className="px-8 py-2.5 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-sm font-bold rounded-xl shadow-md hover:shadow-lg uppercase tracking-wider"
+              className="px-8 py-2.5 bg-gradient-to-r from-pink-200 to-rose-300 text-gray-700 hover:from-pink-300 hover:to-rose-400 transition-all text-sm font-bold rounded-xl shadow-md hover:shadow-lg uppercase tracking-wider"
             >
               RSVP
             </button>
@@ -61,7 +81,7 @@ export default function Navigation() {
           {/* Mobile RSVP Button */}
           <button
             onClick={() => setShowRSVPPopup(true)}
-            className="md:hidden px-4 py-2 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-800 hover:from-rose-400 hover:to-pink-400 transition-all text-xs font-bold rounded-xl shadow-md uppercase tracking-wider"
+            className="md:hidden px-4 py-2 bg-gradient-to-r from-pink-200 to-rose-300 text-gray-700 hover:from-pink-300 hover:to-rose-400 transition-all text-xs font-bold rounded-xl shadow-md uppercase tracking-wider"
           >
             RSVP
           </button>
@@ -70,21 +90,21 @@ export default function Navigation() {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden mt-4 pb-4 flex flex-col gap-4 bg-white/95 backdrop-blur-md rounded-lg p-4">
-            <Link href="/" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+            <Link href="/" className="text-gray-600 hover:text-blue-500 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
               Home
             </Link>
-            <Link href="/quinta" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
-              A quinta
-            </Link>
-            <Link href="/#dress-code" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+            <button onClick={() => navigateToSection('dress-code')} className="text-gray-600 hover:text-blue-500 transition-colors font-medium text-left">
               Dress code
-            </Link>
-            <Link href="/#presente" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => navigateToSection('presente')} className="text-gray-600 hover:text-rose-400 transition-colors font-medium text-left">
               Presente
-            </Link>
-            <Link href="/#faq" className="text-gray-600 hover:text-rose-400 transition-colors font-medium" onClick={() => setIsMenuOpen(false)}>
+            </button>
+            <button onClick={() => navigateToSection('local')} className="text-gray-600 hover:text-rose-400 transition-colors font-medium text-left">
+              O Local
+            </button>
+            <button onClick={() => navigateToSection('faq')} className="text-gray-600 hover:text-blue-500 transition-colors font-medium text-left">
               FAQ
-            </Link>
+            </button>
           </div>
         )}
       </div>

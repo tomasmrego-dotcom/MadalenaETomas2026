@@ -87,7 +87,7 @@ export default function Countdown() {
       <div className="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-contain" style={{ backgroundImage: `url(${basePath}/watermark.png)` }}></div>
       <div className="max-w-6xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-5xl font-serif text-center text-gray-800 mb-8 md:mb-16">
-          Onde e Quando
+          Local e Data
         </h2>
         
         {/* Date */}
@@ -100,10 +100,10 @@ export default function Countdown() {
         {/* Countdown */}
         <div className="mb-8 md:mb-16">
           <div className="flex justify-center items-center gap-2 md:gap-8">
-            <CircularProgress value={timeLeft.days} max={250} color="#fda4af" label="Days" />
-            <CircularProgress value={timeLeft.hours} max={24} color="#f9a8d4" label="Hours" />
-            <CircularProgress value={timeLeft.minutes} max={60} color="#d8b4fe" label="Minutes" />
-            <CircularProgress value={timeLeft.seconds} max={60} color="#fecaca" label="Seconds" />
+            <CircularProgress value={timeLeft.days} max={250} color="#fbb6ce" label="Days" />
+            <CircularProgress value={timeLeft.hours} max={24} color="#60a5fa" label="Hours" />
+            <CircularProgress value={timeLeft.minutes} max={60} color="#f9a8d4" label="Minutes" />
+            <CircularProgress value={timeLeft.seconds} max={60} color="#bfdbfe" label="Seconds" />
           </div>
         </div>
 
@@ -117,7 +117,7 @@ export default function Countdown() {
           </p>
           <Link 
             href="/quinta"
-            className="inline-block px-8 py-3 bg-gradient-to-r from-rose-300 to-pink-300 text-gray-700 hover:from-rose-400 hover:to-pink-400 transition-all font-semibold rounded-lg shadow-md hover:shadow-lg"
+            className="inline-block px-8 py-3 bg-gradient-to-r from-blue-300 to-blue-400 text-gray-700 hover:from-blue-400 hover:to-blue-500 transition-all font-semibold rounded-lg shadow-md hover:shadow-lg"
           >
             Como chegar lá
           </Link>

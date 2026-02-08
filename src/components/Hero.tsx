@@ -8,7 +8,7 @@ export default function Hero() {
   const [showRSVPPopup, setShowRSVPPopup] = useState(false);
   
   return (
-    <section className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden mt-16 md:-mt-0">
+    <section id="home" className="relative h-[60vh] md:h-[80vh] w-full overflow-hidden mt-16 md:-mt-0">
       {/* Mobile Hero Image */}
       <img
         src={`${basePath}/hero-mobile.jpeg`}
@@ -42,8 +42,8 @@ export default function Hero() {
           onClick={() => setShowRSVPPopup(true)}
           className="group relative px-16 py-5 overflow-hidden rounded-xl transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-2xl"
         >
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-300 via-pink-300 to-rose-300"></div>
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-400 via-pink-400 to-rose-400 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-200 via-rose-300 to-pink-200"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-pink-300 via-rose-400 to-pink-300 opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
           <span className="relative text-gray-800 font-bold tracking-[0.3em] text-xl md:text-2xl uppercase">
             RSVP
           </span>
