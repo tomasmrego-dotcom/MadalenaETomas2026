@@ -2,8 +2,27 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Casamento de Madalena & Tomás",
-  description: "Junta-te a nós no nosso dia especial",
+  metadataBase: new URL('https://madalenaetomas2026.pt'),
+  title: "Convite",
+  description: "",
+  icons: {
+    icon: '/envelope.png',
+  },
+  openGraph: {
+    title: "Convite",
+    description: "",
+    url: "https://madalenaetomas2026.pt",
+    siteName: "Convite",
+    type: "website",
+    images: [
+      {
+        url: '/envelope.png',
+        width: 1200,
+        height: 630,
+        alt: 'Convite',
+      },
+    ],
+  },
 };
 
 export const viewport: Viewport = {

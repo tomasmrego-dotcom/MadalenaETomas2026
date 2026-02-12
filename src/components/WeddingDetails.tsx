@@ -46,8 +46,8 @@ export default function WeddingDetails() {
             </div>
             <h3 className="text-2xl font-serif text-gray-800 mb-4">Traje</h3>
             <p className="text-gray-600 mb-2">Formal</p>
-            <p className="text-gray-600">Traje de Gala</p>
-            <p className="text-gray-500 text-sm mt-2">Traje de cocktail bem-vindo</p>
+            <p className="text-gray-600">Fato escuro para senhores</p>
+            <p className="text-gray-500 text-sm mt-2">As senhoras estão sempre bem!</p>
           </div>
         </div>
       </div>

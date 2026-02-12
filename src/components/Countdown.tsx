@@ -115,12 +115,15 @@ export default function Countdown() {
           <p className="text-base md:text-xl text-gray-600 mb-6">
             2810-434 Almada
           </p>
-          <Link 
-            href="/quinta"
+          <button 
+            onClick={() => {
+              const element = document.getElementById('local');
+              element?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="inline-block px-8 py-3 bg-gradient-to-r from-blue-300 to-blue-400 text-gray-700 hover:from-blue-400 hover:to-blue-500 transition-all font-semibold rounded-lg shadow-md hover:shadow-lg"
           >
             Como chegar lá
-          </Link>
+          </button>
         </div>
       </div>
     </section>

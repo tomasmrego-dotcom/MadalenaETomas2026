@@ -124,18 +124,18 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-0 p-3 sm:p-6">
               {/* Left Side - Image */}
-              <div className="relative h-[180px] sm:h-[300px] md:h-[500px] sm:border-r-2 border-blue-300 sm:pr-4 mb-4 sm:mb-0">
+              <div className="relative h-[220px] sm:h-[300px] md:h-[500px] sm:border-r-2 border-blue-300 sm:pr-4 sm:mb-0">
                 <img
                   src={`${basePath}/kenya2.jpg`}
                   alt="Kenya"
-                  className="w-full h-full object-cover rounded border-2 border-gray-300 shadow-md"
+                  className="w-full h-full object-cover rounded shadow-md"
                 />
               </div>
 
               {/* Right Side - Message Area */}
-              <div className="sm:pl-4 relative">
+              <div className="sm:pl-4 relative px-4 sm:px-0">
                 {/* From field */}
-                <div className="mb-2 sm:mb-4 pt-8 sm:pt-16">
+                <div className="mb-1 sm:mb-4 pt-2 sm:pt-16">
                   <label htmlFor="gift-name" className="block text-sm text-blue-600 mb-1" style={{ fontFamily: 'cursive' }}>
                     from:
                   </label>
@@ -153,7 +153,7 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
                 </div>
 
                 {/* To field */}
-                <div className="mb-3 sm:mb-6">
+                <div className="mb-2 sm:mb-6">
                   <label className="block text-sm text-blue-600 mb-2" style={{ fontFamily: 'cursive' }}>
                     to: Madalena & Tomás
                   </label>
@@ -167,8 +167,8 @@ export default function PostalCardForm({ onClose }: PostalCardFormProps) {
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
                   placeholder="Escreve aqui a tua mensagem..."
-                  rows={10}
-                  className="w-full px-0 py-2 border-0 bg-transparent focus:outline-none text-gray-800 resize-none text-sm sm:text-base"
+                  rows={7}
+                  className="w-full px-0 py-1 border-0 bg-transparent focus:outline-none text-gray-800 resize-none text-sm sm:text-base"
                   style={{ 
                     fontFamily: 'cursive'
                   }}

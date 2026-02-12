@@ -18,9 +18,10 @@ export default function InfoSection() {
               Dress Code
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-              Sugerimos um dress code elegante, adequado a um casamento ao ar livre.
-              O mais importante é que se sintam confortáveis para aproveitar o dia connosco!
-              O casamento decorrerá num ambiente com algumas zonas de relva, pelo que aconselhamos a não usar saltos muito finos.
+              O dress code será formal, com fato escuro para os senhores. As senhoras estão sempre bem!
+            </p>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
+              O cocktail decorrerá num espaço com algumas zonas de relva, pelo que aconselhamos a não usar saltos muito finos.
             </p>
           </div>
           
@@ -56,6 +57,8 @@ export default function InfoSection() {
             </h2>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">
               A vossa presença é, sem dúvida, o melhor presente que nos podem dar.
+            </p>
+            <p className="text-base md:text-lg text-gray-700 leading-relaxed">
               Se nos quiserem oferecer um presente, estamos a planear uma viagem de lua de mel ao Quénia e à Tanzânia, e ficaremos muito agradecidos por qualquer contributo para realizar este sonho.
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed">

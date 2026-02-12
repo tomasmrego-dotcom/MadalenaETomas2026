@@ -7,6 +7,7 @@ interface EnvelopeEntryProps {
 }
 
 export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
+  const [isGrowing, setIsGrowing] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
   const [showInvitation, setShowInvitation] = useState(false);
   const [invitationLoaded, setInvitationLoaded] = useState(false);
@@ -18,19 +19,40 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
     invitationImg.src = `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/invitation.png`;
   }, []);
 
+  // Handle keyboard events
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      if (event.key === 'Enter' && !isGrowing && !isOpening && invitationLoaded) {
+        handleClick();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [isGrowing, isOpening, invitationLoaded]);
+
   const handleClick = () => {
     // Only start animation if invitation image is preloaded
-    if (!invitationLoaded) return;
+    if (!invitationLoaded || isGrowing || isOpening) return;
     
-    setIsOpening(true);
-    // Show invitation after envelope starts opening
+    // Start with grow animation
+    setIsGrowing(true);
+    
+    // After grow animation (1 second), start opening
     setTimeout(() => {
-      setShowInvitation(true);
-    }, 800);
-    // Wait 5 seconds after invitation appears before showing main content
-    setTimeout(() => {
-      onOpen();
-    }, 5800);
+      setIsGrowing(false);
+      setIsOpening(true);
+      
+      // Show invitation after envelope starts opening
+      setTimeout(() => {
+        setShowInvitation(true);
+      }, 800);
+      
+      // Wait 5 seconds after invitation appears before showing main content
+      setTimeout(() => {
+        onOpen();
+      }, 5800);
+    }, 1000);
   };
 
   return (
@@ -46,14 +68,14 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
           {/* Envelope */}
           <div
             onClick={handleClick}
-            className={`cursor-pointer hover:scale-105 transition-transform duration-300 ${
-              isOpening ? "" : "scale-100 opacity-100"
+            className={`cursor-pointer ${
+              !isGrowing && !isOpening ? "hover:scale-105 transition-transform duration-300" : ""
             }`}
             style={{
-              animation: isOpening ? "envelopeOpen 1.2s ease-out forwards" : "none",
+              animation: isGrowing ? "envelopeGrow 1s cubic-bezier(0.4, 0.0, 0.2, 1) forwards" : isOpening ? "envelopeOpen 1.2s ease-out forwards" : "none",
             }}
           >
-            <div className="relative w-[98vw] h-[70vh] md:w-[900px] md:h-[600px] lg:w-[1100px] lg:h-[733px]">
+            <div className="relative w-[100vw] h-[80vh] md:w-[900px] md:h-[600px] lg:w-[1100px] lg:h-[733px]">
               <img
                 src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/envelope.png`}
                 alt="Wedding Invitation Envelope"
@@ -73,7 +95,7 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
                   animation: "slideUp 1s ease-out forwards",
                 }}
               >
-                <div className="relative w-[85vw] h-[70vh] md:w-[700px] md:h-[933px] lg:w-[900px] lg:h-[1200px]">
+                <div className="relative w-[98vw] h-[80vh] md:w-[700px] md:h-[933px] lg:w-[900px] lg:h-[1200px]">
                   <img
                     src={`${process.env.NEXT_PUBLIC_BASE_PATH || ''}/invitation.png`}
                     alt="Wedding Invitation"
@@ -87,7 +109,7 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
           {/* Instruction text - positioned below envelope with proper spacing */}
           <div
             className={`fixed left-1/2 -translate-x-1/2 transition-opacity duration-500 whitespace-nowrap text-blue-600 font-light text-[18px] md:text-[20px] lg:text-[22px] ${
-              isOpening ? "opacity-0" : "opacity-100"
+              isGrowing || isOpening ? "opacity-0" : "opacity-100"
             }`}
             style={{
               top: "60vh", // Mobile: simple VH positioning
@@ -153,19 +175,22 @@ export default function EnvelopeEntry({ onOpen }: EnvelopeEntryProps) {
                   transform: translate(var(--end-x), var(--end-y)) scale(0.8);
                 }
               }
-              @keyframes envelopeOpen {
+              @keyframes envelopeGrow {
                 0% {
                   transform: scale(1);
                 }
-                30% {
-                  transform: scale(1.05) rotateX(5deg);
+                100% {
+                  transform: scale(1.15);
                 }
-                60% {
-                  transform: scale(1.1) rotateX(-5deg);
+              }
+              @keyframes envelopeOpen {
+                0% {
+                  transform: scale(1.15);
+                  opacity: 1;
                 }
                 100% {
-                  transform: scale(1.05) translateY(-20px);
-                  opacity: 0.8;
+                  transform: scale(1.15);
+                  opacity: 0;
                 }
               }
               @keyframes slideUp {

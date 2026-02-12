@@ -142,7 +142,7 @@ export default function RSVPForm() {
             {/* Name */}
             <div className="mb-6">
               <label htmlFor="name" className="block text-gray-700 font-semibold mb-2">
-                Nome Completo *
+                Nome *
               </label>
               <input
                 type="text"
@@ -153,7 +153,7 @@ export default function RSVPForm() {
                 className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300 ${
                   errors.name ? "border-red-500" : "border-gray-300"
                 }`}
-                placeholder="João Silva"
+                placeholder="João"
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -219,21 +219,25 @@ export default function RSVPForm() {
             {formData.attendance === "yes" && (
               <>
                 <div className="mb-6">
-                  <label htmlFor="guests" className="block text-gray-700 font-semibold mb-2">
-                    Número de Convidados
+                  <label className="block text-gray-700 font-semibold mb-2">
+                    Número de convidados que irão estar presentes:
                   </label>
-                  <select
-                    id="guests"
-                    name="guests"
-                    value={formData.guests}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300"
-                  >
-                    <option value="1">1 Convidado</option>
-                    <option value="2">2 Convidados</option>
-                    <option value="3">3 Convidados</option>
-                    <option value="4">4 Convidados</option>
-                  </select>
+                  <div className="flex items-center gap-3">
+                    <span className="text-gray-700">Confirmo a presença de:</span>
+                    <select
+                      id="guests"
+                      name="guests"
+                      value={formData.guests}
+                      onChange={handleChange}
+                      className="px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-rose-300"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                    </select>
+                    <span className="text-gray-700">convidados</span>
+                  </div>
                 </div>
 
                 {/* Dietary Restrictions */}

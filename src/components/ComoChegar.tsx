@@ -12,10 +12,10 @@ export default function ComoChegar() {
           {/* Description */}
           <div className="max-w-3xl mx-auto space-y-6">
             <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center">
-              A <strong>20 minutos de Lisboa</strong>, a melhor forma de chegar é através de carro ou Uber. 
+              A cerca de <strong>20 minutos de Lisboa</strong>, a forma mais simples de chegar é de carro ou Uber.
             </p>
             <p className="text-base md:text-lg text-gray-700 leading-relaxed text-center">
-              Caso se venha de carro há um parque de estacionamento que suporta mais de 100 carros.
+              Para quem optar por vir de carro, existe um parque de estacionamento disponível com capacidade para mais de 100 carros.
             </p>
             <div className="pt-4 text-center">
               <a 

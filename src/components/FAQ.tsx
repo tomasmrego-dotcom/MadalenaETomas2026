@@ -27,7 +27,6 @@ const faqs: FAQItem[] = [
 ];
 
 export default function FAQ() {
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
@@ -36,8 +35,6 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="py-20 px-4 bg-gradient-to-br from-gray-800 to-gray-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 bg-center bg-cover" style={{ backgroundImage: `url(${basePath}/timeline_background.jpeg)` }}></div>
 
       <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-4xl md:text-5xl font-serif text-center text-white mb-6">
