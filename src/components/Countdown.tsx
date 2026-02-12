@@ -122,7 +122,7 @@ export default function Countdown() {
             }}
             className="inline-block px-8 py-3 bg-gradient-to-r from-blue-300 to-blue-400 text-gray-700 hover:from-blue-400 hover:to-blue-500 transition-all font-semibold rounded-lg shadow-md hover:shadow-lg"
           >
-            Como chegar lá
+            Como chegar
           </button>
         </div>
       </div>

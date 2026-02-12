@@ -62,7 +62,7 @@ export default function RSVPPage() {
     setIsSubmitting(true);
 
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxJX4OZIrEsV2Zs1VmIc2WD7huTf49jzM1zx7pO4DhgRrcfFDJ8_sRHGzpeM1zUUh12/exec';
+      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxHxIORynCMNAecRSRGdzZntirv6IlBEE-doCExtKDg2GVUViRUhGZ5-NK3srTyFXnP/exec';
       
       // Using text/plain to avoid CORS preflight issues with Google Scripts
       await fetch(GOOGLE_SCRIPT_URL, {

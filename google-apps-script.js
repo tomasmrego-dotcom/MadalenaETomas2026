@@ -3,12 +3,18 @@
 
 function doPost(e) {
   try {
+    // Check if postData exists
+    if (!e || !e.postData || !e.postData.contents) {
+      return ContentService
+        .createTextOutput(JSON.stringify({success: false, error: 'No data received'}))
+        .setMimeType(ContentService.MimeType.JSON);
+    }
+    
     // Parse the JSON data
     const data = JSON.parse(e.postData.contents);
     
-    // Get the spreadsheet by ID (you'll need to update this with your actual spreadsheet ID)
-    const SPREADSHEET_ID = 'YOUR_SPREADSHEET_ID_HERE'; // Replace with your Google Sheets ID
-    const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+    // Get the spreadsheet
+    const spreadsheet = SpreadsheetApp.getActiveSpreadsheet();
     
     if (data.type === 'rsvp') {
       handleRSVPSubmission(spreadsheet, data);
@@ -34,26 +40,35 @@ function handleRSVPSubmission(spreadsheet, data) {
   if (!sheet) {
     sheet = spreadsheet.insertSheet('RSVP');
     // Add headers
-    sheet.getRange(1, 1, 1, 6).setValues([
-      ['Timestamp', 'Names', 'Guest Count', 'Attendance', 'Song Request', 'Status']
+    sheet.getRange(1, 1, 1, 8).setValues([
+      ['Timestamp', 'Email', 'Names', 'Guest Count', 'Attendance', 'Dietary Restrictions', 'Message/Song Request', 'Status']
     ]);
-    sheet.getRange(1, 1, 1, 6).setFontWeight('bold');
+    sheet.getRange(1, 1, 1, 8).setFontWeight('bold');
   }
   
+  const dietaryRestrictions = data.dietary || data.dietaryRestrictions || '';
+  const names = Array.isArray(data.guestNames)
+    ? data.guestNames.join(', ')
+    : (data.names || data.guestNames || '');
+  const guestCount = data.guestCount || data.numberOfGuests || '1';
+  const message = data.message || data.songRequest || '';
+
   // Add the data
   const row = [
     new Date(),
-    data.names || '',
-    data.guestCount || '1',
+    data.email || '',
+    names,
+    guestCount,
     data.attendance || '',
-    data.songRequest || '',
+    dietaryRestrictions,
+    message,
     'New'
   ];
   
   sheet.appendRow(row);
   
   // Auto-resize columns
-  sheet.autoResizeColumns(1, 6);
+  sheet.autoResizeColumns(1, 8);
 }
 
 function handleGiftSubmission(spreadsheet, data) {
