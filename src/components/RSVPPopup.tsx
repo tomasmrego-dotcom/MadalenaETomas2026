@@ -77,7 +77,7 @@ export default function RSVPPopup({ onClose }: RSVPPopupProps) {
       onClick={isSending ? undefined : onClose}
       style={{ maxHeight: '100vh', overflowY: 'auto' }}
     >
-      <div className="relative w-full max-w-sm sm:max-w-4xl md:max-w-6xl max-h-[88vh] overflow-y-auto my-2">
+      <div className="relative w-full max-w-sm sm:max-w-4xl md:max-w-6xl max-h-[88vh] overflow-y-auto overflow-x-hidden my-2">
         {/* Close Button */}
         <div className="flex justify-end mb-2">
           <button
@@ -155,7 +155,7 @@ export default function RSVPPopup({ onClose }: RSVPPopupProps) {
                           )}
                         </div>
                       </div>
-                      <span className="ml-4 text-white font-semibold tracking-wide text-base sm:text-lg">Sim, com todo o gosto</span>
+                      <span className="ml-4 text-white font-semibold tracking-wide text-base sm:text-lg" translate="no">Sim, confirmo</span>
                     </label>
 
                     <label className="flex items-center cursor-pointer hover:bg-white/10 p-2 rounded transition-colors">
@@ -176,7 +176,7 @@ export default function RSVPPopup({ onClose }: RSVPPopupProps) {
                           )}
                         </div>
                       </div>
-                      <span className="ml-4 text-white font-semibold tracking-wide text-base sm:text-lg">Não poderei estar presente</span>
+                      <span className="ml-4 text-white font-semibold tracking-wide text-base sm:text-lg" translate="no">Não poderei estar presente</span>
                     </label>
                   </div>
                 </div>

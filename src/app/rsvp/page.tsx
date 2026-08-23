@@ -210,7 +210,7 @@ export default function RSVPPage() {
                         onChange={handleChange}
                         className="mr-2 text-rose-400 focus:ring-rose-300"
                       />
-                      <span>Sim, estarei lá!</span>
+                      <span translate="no">Sim, estarei lá!</span>
                     </label>
                     <label className="flex items-center">
                       <input
@@ -221,7 +221,7 @@ export default function RSVPPage() {
                         onChange={handleChange}
                         className="mr-2 text-rose-400 focus:ring-rose-300"
                       />
-                      <span>Infelizmente não posso</span>
+                      <span translate="no">Infelizmente não posso</span>
                     </label>
                   </div>
                   {errors.attendance && (

@@ -14,7 +14,7 @@ const faqs: FAQItem[] = [
   },
   {
     question: "Restrições alimentares",
-    answer: "Caso tenham alguma restrição ou preferência alimentar, por favor indiquem-na no formulário de RSVP. Faremos o possível para acomodar todas as necessidades da melhor forma. Estarão disponíveis opções vegetarianas, veganas e de peixe, pensadas para diferentes preferências alimentares."
+    answer: "Se tiverem alguma restrição ou preferência alimentar, por favor indiquem-na no formulário de RSVP."
   },
   {
     question: "Estacionamento",

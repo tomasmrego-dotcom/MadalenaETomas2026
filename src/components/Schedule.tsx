@@ -26,8 +26,8 @@ export default function Schedule() {
             <div className="text-5xl md:text-6xl font-light text-white mb-4">
               17:30
             </div>
-            <div className="text-sm md:text-base uppercase tracking-wider text-gray-300">
-              Cocktail
+            <div className="text-sm md:text-base uppercase tracking-wider text-gray-300" translate="no">
+              COCKTAIL
             </div>
           </div>
           

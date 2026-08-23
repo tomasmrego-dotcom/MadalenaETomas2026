@@ -4,24 +4,29 @@ import "./globals.css";
 export const metadata: Metadata = {
   metadataBase: new URL('https://madalenaetomas2026.pt'),
   title: "Convite",
-  description: "",
   icons: {
     icon: '/envelope.png',
   },
   openGraph: {
     title: "Convite",
-    description: "",
+    description: "Convite de casamento de Madalena e Tomas. RSVP e detalhes do evento.",
     url: "https://madalenaetomas2026.pt",
     siteName: "Convite",
     type: "website",
     images: [
       {
-        url: '/envelope.png',
+        url: 'https://madalenaetomas2026.pt/envelope-preview.jpg',
         width: 1200,
         height: 630,
         alt: 'Convite',
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Convite",
+    description: "Convite de casamento de Madalena e Tomas.",
+    images: ['https://madalenaetomas2026.pt/envelope-preview.jpg'],
   },
 };
 

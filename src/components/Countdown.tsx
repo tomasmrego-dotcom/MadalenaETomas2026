@@ -13,7 +13,7 @@ export default function Countdown() {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      const weddingDate = new Date("2026-10-10T17:00:00");
+      const weddingDate = new Date("2026-10-10T16:00:00");
       const now = new Date();
       const difference = weddingDate.getTime() - now.getTime();
 
