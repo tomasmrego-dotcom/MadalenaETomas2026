@@ -34,9 +34,8 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  /* Hide blue status bar on mobile */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
+  /* Remove the blue tap highlight on mobile (selection stays enabled so
+     guests can copy the IBAN / MBWay number) */
   -webkit-tap-highlight-color: transparent;
 }
 
