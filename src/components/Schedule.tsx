@@ -15,7 +15,7 @@ export default function Schedule() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
           <div className="flex flex-col items-center text-center">
             <div className="text-5xl md:text-6xl font-light text-white mb-4">
-              16:00
+              15:30
             </div>
             <div className="text-sm md:text-base uppercase tracking-wider text-gray-300">
               Cerimónia

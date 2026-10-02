@@ -19,7 +19,7 @@ export default function WeddingDetails() {
               </svg>
             </div>
             <h3 className="text-2xl font-serif text-gray-800 mb-4">Cerimónia</h3>
-            <p className="text-gray-600 mb-2">16:00</p>
+            <p className="text-gray-600 mb-2">15:30</p>
             <p className="text-gray-600">Terraço do Jardim</p>
             <p className="text-gray-500 text-sm mt-2">Quinta do Vale</p>
           </div>
